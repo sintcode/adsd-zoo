@@ -1,0 +1,8 @@
+﻿on: push
+jobs:
+  first-job:
+    run-on: windows-latest
+    container: node:22
+    step:
+      - run: node --version
+      - run: npm --version
