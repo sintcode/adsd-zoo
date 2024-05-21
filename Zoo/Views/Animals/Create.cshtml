@@ -1,0 +1,78 @@
+﻿@model Zoo.Models.Animal
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Animal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species" class="control-label"></label>
+                <input asp-for="Species" class="form-control" />
+                <span asp-validation-for="Species" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <select asp-for="Size" asp-items="Html.GetEnumSelectList<Animal.SizeClass>()" class="form-control"></select>
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diet" class="control-label"></label>
+                <select asp-for="Diet" asp-items="Html.GetEnumSelectList<Animal.DietType>()" class="form-control"></select>
+                <span asp-validation-for="Diet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity" class="control-label"></label>
+                <select asp-for="Activity" asp-items="Html.GetEnumSelectList<Animal.ActivityPattern>()" class="form-control"></select>
+                <span asp-validation-for="Activity" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Predator" /> @Html.DisplayNameFor(model => model.Predator)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpaceRequired" class="control-label">Space Required</label>
+                <input asp-for="SpaceRequired" class="form-control" />
+                <span asp-validation-for="SpaceRequired" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecurityRequired" class="control-label">Security Required</label>
+                <select asp-for="SecurityRequired" asp-items="Html.GetEnumSelectList<Animal.SecurityLevel>()" class="form-control"></select>
+                <span asp-validation-for="SecurityRequired" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <input asp-for="CategoryId" class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnclosureId" class="control-label"></label>
+                <input asp-for="EnclosureId" class="form-control" />
+                <span asp-validation-for="EnclosureId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
