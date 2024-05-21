@@ -1,0 +1,13 @@
+﻿on:
+  push:
+    branches:
+      - main  # You can specify specific branches here if needed
+
+jobs:
+  first-job:
+    runs-on: windows-latest
+    container:
+      image: node:22
+    steps:
+      - name: Check Node.js version
+        run: node --version
