@@ -11,7 +11,8 @@
             Aquatic = 2, 
             Desert = 4, 
             Grassland = 8,
-            Tundra = 16
+            Tundra = 16,
+            Marsh = 32
         };
         public bool PredatorEnclosure { get; set; }
         public bool PredatorSpecies { get; set; }

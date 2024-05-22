@@ -14,7 +14,9 @@
         public enum SecurityLevel {None, Low, Medium, High}
         public SecurityLevel SecurityRequired { get; set; }
 
-        public int CategoryId { get; set; }
         public int EnclosureId { get; set; }
+        public Enclosure Enclosure { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }
