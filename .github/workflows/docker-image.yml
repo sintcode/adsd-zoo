@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag zoo:$(date +%s)
+      run: docker build . --file Dockerfile --tag f3bc7e8815c1475e900c9b3da1572d506c3dab9cb46a463d82ff4d8a5a5f8b83:$(date +%s)
