@@ -1,22 +1,22 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: [group_name]
-  namespace: group[group_number]
+  name: group15
+  namespace: group15
   labels:
-    app: [group_name]
+    app: group15
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: [group_name]
+      app: group15
   template:
     metadata:
       labels:
-        app: [group_name]
+        app: group15
     spec:
       containers:
-        - name: [group_name]
+        - name: group15
           image: [your_image_name:latest]
           ports:
             - name: web
@@ -34,7 +34,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: [group_name]
+  name: group15
   namespace: group03
 spec:
   ports:
@@ -42,21 +42,21 @@ spec:
       port: 80
       targetPort: web
   selector:
-    app: [group_name]
+    app: group15
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: [group_name]route
+  name: group15 route
   namespace: group03
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`[group_number].web.dops.tech`) && PathPrefix(`/`)
+    - match: Host(`15.web.dops.tech`) && PathPrefix(`/`)
       kind: Rule
       services:
-        - name: [group_name]
+        - name: group15
           port: 80
   tls:
     certResolver: myresolver

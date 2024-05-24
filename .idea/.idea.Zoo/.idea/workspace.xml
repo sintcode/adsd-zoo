@@ -27,6 +27,7 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -133,7 +134,7 @@
       <updated>1716286900871</updated>
       <workItem from="1716286901354" duration="945000" />
       <workItem from="1716288558333" duration="633000" />
-      <workItem from="1716535949641" duration="2521000" />
+      <workItem from="1716535949641" duration="2838000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
@@ -141,6 +142,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
