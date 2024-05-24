@@ -34,4 +34,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: jarik01/zoo:dev
+          tags: jarik01/zoo:dev:latest
