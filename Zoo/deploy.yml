@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: group15
-          image: [your_image_name:latest]
+          image: jarik01/zoo:latest
           ports:
             - name: web
               containerPort: 80
