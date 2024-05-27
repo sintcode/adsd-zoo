@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac7b2da0-64e2-416d-881b-57d4b10e5f30" name=" NuGet Package Manager Console" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Zoo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zoo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zoo/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Zoo/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zoo/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Zoo/deploy.yml" afterDir="false" />
-    </list>
+    <list default="true" id="ac7b2da0-64e2-416d-881b-57d4b10e5f30" name=" NuGet Package Manager Console" comment="" />
     <list id="f2395307-5970-4b8c-a526-ad060d97f8d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,6 +142,7 @@
       <workItem from="1716288558333" duration="633000" />
       <workItem from="1716535949641" duration="6675000" />
       <workItem from="1716548765074" duration="5085000" />
+      <workItem from="1716793482461" duration="280000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
