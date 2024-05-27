@@ -48,7 +48,7 @@ jobs:
         -
           name: Run unit tests
           run: |
-            dotnet test ./adsd-zoo/TestZoo/AnimalTest.csproj
+            dotnet test ./TestZoo/AnimalTest.csproj
           
   security_scan:
     runs-on: ubuntu-latest
