@@ -36,19 +36,19 @@ jobs:
           file: ./Zoo/Dockerfile
           push: true
           tags: jarik01/zoo:latest
-unit_test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      -
-        name: Checkout code
-        uses: actions/checkout@v2
+  unit_test:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        -
+          name: Checkout code
+          uses: actions/checkout@v2
       
-      # Run unit tests
-      -
-        name: Run unit tests
-        run: |
-          dotnet test ./adsd-zoo/TestZoo/AnimalTest.csproj
+        # Run unit tests
+        -
+          name: Run unit tests
+          run: |
+            dotnet test ./adsd-zoo/TestZoo/AnimalTest.csproj
           
   security_scan:
     runs-on: ubuntu-latest
