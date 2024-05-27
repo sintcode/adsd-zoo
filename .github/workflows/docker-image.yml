@@ -36,3 +36,18 @@ jobs:
           file: ./Zoo/Dockerfile
           push: true
           tags: jarik01/zoo:latest
+          
+  post_deployment_verification:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      -
+        name: Perform smoke tests
+        run: |
+          # Run smoke tests against the deployed application
+          # Example: curl or send HTTP requests to check basic functionality
+      -
+        name: Monitor application logs and metrics
+        run: |
+          # Monitor application logs and metrics for any errors or anomalies
+          # Example: Use log monitoring tools or custom scripts to analyze logs
