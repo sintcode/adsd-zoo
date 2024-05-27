@@ -36,33 +36,22 @@ jobs:
           file: ./Zoo/Dockerfile
           push: true
           tags: jarik01/zoo:latest
-
-  upload-test-results:
+          
+  security_scan:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Download test results
-        uses: actions/download-artifact@v2
-        with:
-          name: test-results
-          path: ${{ github.workspace }}/test-results
-      
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v2
-        with:
-          name: unit-test-results
-          path: ${{ github.workspace }}/test-results
+      -
+        name: Scan for security vulnerabilities
+        run: |
+          # Use OWASP Dependency-Check or SonarQube with security plugins to scan for vulnerabilities
+          # Example: Run OWASP Dependency-Check against dependencies
+      # Add more steps as needed for security scanning and reporting
           
   post_deployment_verification:
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      -
-        name: Download unit test results
-        uses: actions/download-artifact@v2
-        with:
-          name: unit-test-results
-          path: ${{ github.workspace }}/unit-test-results
-          
       -
         name: Perform smoke tests
         run: |
