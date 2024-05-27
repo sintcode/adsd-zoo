@@ -20,7 +20,7 @@ spec:
           image: jarik01/zoo:latest
           ports:
             - name: web
-              containerPort: 80
+              containerPort: 8080
           resources:
             requests:
               memory: "64Mi"
@@ -37,7 +37,7 @@ metadata:
 spec:
   ports:
     - name: web
-      port: 80
+      port: 8080
       targetPort: web
   selector:
     app: group15
@@ -55,6 +55,6 @@ spec:
       kind: Rule
       services:
         - name: group15
-          port: 80
+          port: 8080
   tls:
     certResolver: myresolver
