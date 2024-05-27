@@ -9,7 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac7b2da0-64e2-416d-881b-57d4b10e5f30" name=" NuGet Package Manager Console" comment="" />
+    <list default="true" id="ac7b2da0-64e2-416d-881b-57d4b10e5f30" name=" NuGet Package Manager Console" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Zoo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zoo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zoo/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Zoo/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zoo/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Zoo/deploy.yml" afterDir="false" />
+    </list>
     <list id="f2395307-5970-4b8c-a526-ad060d97f8d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,30 +41,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Zoo: http.executor": "Run",
-    "Docker.Zoo/Dockerfile.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderNuGetOptionsPageId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Zoo: http.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Zoo/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/jariknoop/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
-      "/Users/jariknoop/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
-      "/Users/jariknoop/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/jariknoop/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/jariknoop/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/jariknoop/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Zoo: http">
+}</component>
+  <component name="RunManager" selected="Docker.Zoo/Dockerfile">
     <configuration name="Zoo: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Zoo/Zoo.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -94,8 +98,9 @@
     <configuration name="Zoo/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
+          <option name="imageTag" value="jarik01/zoo:dev" />
           <option name="containerName" value="zoo" />
-          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="contextFolderPath" value="." />
           <option name="publishAllPorts" value="true" />
           <option name="sourceFilePath" value="Zoo/Dockerfile" />
         </settings>
@@ -110,6 +115,11 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.Zoo: http" />
+      <item itemvalue=".NET Launch Settings Profile.Zoo: https" />
+      <item itemvalue="Docker.Zoo/Dockerfile" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -134,7 +144,8 @@
       <updated>1716286900871</updated>
       <workItem from="1716286901354" duration="945000" />
       <workItem from="1716288558333" duration="633000" />
-      <workItem from="1716535949641" duration="3542000" />
+      <workItem from="1716535949641" duration="6675000" />
+      <workItem from="1716548765074" duration="5085000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />

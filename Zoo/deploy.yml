@@ -28,8 +28,6 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
-      imagePullSecrets:
-        - name: registry-credentials
 ---
 apiVersion: v1
 kind: Service
@@ -47,7 +45,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: group15 route
+  name: group15route
   namespace: group15
 spec:
   entryPoints:
