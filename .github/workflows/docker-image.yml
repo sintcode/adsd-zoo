@@ -36,6 +36,16 @@ jobs:
           file: ./Zoo/Dockerfile
           push: true
           tags: jarik01/zoo:latest
+
+  security_scan:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      -
+        name: Scan for security vulnerabilities
+        run: |
+          # Use OWASP Dependency-Check or SonarQube with security plugins to scan for vulnerabilities
+          # Example: Run OWASP Dependency-Check against dependencies
           
   post_deployment_verification:
     runs-on: ubuntu-latest
