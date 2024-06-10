@@ -11,6 +11,14 @@ namespace TestZoo {
         }
 
         [Fact]
+        public void CheckSecurityLevel()
+        {
+            Enclosure highSecurity = new();
+            highSecurity.SecurityRequired = Enclosure.SecurityLevel.High;
+            Assert.Equivalent(highSecurity.SecurityRequired,Enclosure.SecurityLevel.High);
+        }
+
+        [Fact]
         public void CheckIfArcticDesertContainsPenguin(){
             Enclosure arcticDesert = new();
             arcticDesert.Climate = Enclosure.ClimateType.Arctic;
