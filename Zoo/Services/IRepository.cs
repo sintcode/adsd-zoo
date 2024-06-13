@@ -1,3 +1,4 @@
+using Zoo.Data;
 namespace Zoo.Data
 {
     public interface IRepository<T> where T : class
