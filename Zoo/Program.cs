@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Zoo.Data;
+using Zoo.Services; // Make sure this line is present
+
 namespace Zoo {
     public class Program {
         public static void Main(string[] args) {
@@ -10,6 +12,7 @@ namespace Zoo {
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<IBusinessLogicService, BusinessLogicService>(); // The compiler should be able to find IBusinessLogicService now
 
             var app = builder.Build();
 

@@ -14,7 +14,7 @@ namespace Zoo.Data
         {
         }
 
-        public DbSet<Zoo.Models.Animal> Animal { get; set; } = default!;
+        public DbSet<Animal> Animal { get; set; } = default!;
         public DbSet<Zoo.Models.Enclosure> Enclosure { get; set; } = default!;
         public DbSet<Zoo.Models.Category> Category { get; set; } = default!;
     }
