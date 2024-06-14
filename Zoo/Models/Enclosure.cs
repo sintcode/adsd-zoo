@@ -1,12 +1,15 @@
-﻿namespace Zoo.Models {
-    public class Enclosure {
+﻿namespace Zoo.Models 
+{
+    public class Enclosure 
+    {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Animal> Animals { get; set; } = new();
+        public List<Animal> Animals { get; set; } = [];
         public enum ClimateType {Tropical, Temperate, Arctic, Arid};
         public ClimateType Climate { get; set; }
         [Flags]
-        public enum HabitatType {
+        public enum HabitatType 
+        {
             Forest = 1, 
             Aquatic = 2, 
             Desert = 4, 
