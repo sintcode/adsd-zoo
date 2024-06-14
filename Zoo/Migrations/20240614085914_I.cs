@@ -5,7 +5,7 @@
 namespace Zoo.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class I : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,8 +56,8 @@ namespace Zoo.Migrations
                     Predator = table.Column<bool>(type: "bit", nullable: false),
                     SpaceRequired = table.Column<double>(type: "float", nullable: false),
                     SecurityRequired = table.Column<int>(type: "int", nullable: false),
-                    EnclosureId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    EnclosureId = table.Column<int>(type: "int", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

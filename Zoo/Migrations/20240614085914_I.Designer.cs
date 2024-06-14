@@ -11,8 +11,8 @@ using Zoo.Data;
 namespace Zoo.Migrations
 {
     [DbContext(typeof(ZooContext))]
-    [Migration("20240521113529_Initial")]
-    partial class Initial
+    [Migration("20240614085914_I")]
+    partial class I
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
