@@ -2,24 +2,23 @@
 {
     public class Animal 
     {
+        //Primary Attributes
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Species { get; set; }
-        public enum SizeClass {Microscopic, Tiny, Small, Medium, Large, Huge};
-        public SizeClass Size { get; set; }
-        public enum DietType {Carnivore, Omnivore, Herbivore, Insectivore, Piscivore};
-        public DietType Diet { get; set; }
-        public enum ActivityPattern {Diurnal, Nocturnal, Cathmeral};
-        public ActivityPattern Activity { get; set; }
-        public bool Predator { get; set; }
-        public double SpaceRequired { get; set; }
-        public enum SecurityLevel {None, Low, Medium, High};
-        public SecurityLevel SecurityRequired { get; set; }
+        public enum Genders { Male, Female } //Could even be flags because it's 2024, who knows really.
+        public Genders Gender { get; set; }
+        public double Weight { get; set; }
 
-        public int EnclosureId { get; set; }
-        public Enclosure Enclosure { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
-        
+        //Optional extra details about an Animal
+        public string? Personality { get; set; } //Nullable, optional information
+        public string? PreferredDiet { get; set; } //Nullable, optional information
+
+        //Species, not nullable as Animals ALWAYS have a species
+        public int SpeciesId { get; set; }
+        public Species Species { get; set; }
+
+        //Enclosure, nullable as assignment to Enclosure is not a guarantee
+        public int? EnclosureId { get; set; }
+        public Enclosure? Enclosure { get; set; }
     }
 }

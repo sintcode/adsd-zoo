@@ -5,8 +5,9 @@ namespace TestZoo {
         [Fact]
         public void CheckIfCarnivore() {
             Animal dog = new();
-            dog.Diet = Animal.DietType.Carnivore;
-            Assert.Equivalent(dog.Diet, Animal.DietType.Carnivore);
+            Species germanShepard = new(){Id = 1, Diet = Species.DietType.Carnivore};
+            dog.SpeciesId = 1;
+            Assert.Equivalent(dog.Species.Diet, Species.DietType.Carnivore);
         }
     }
 }

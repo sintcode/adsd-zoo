@@ -2,21 +2,29 @@ using Zoo.Data;
 
 namespace Zoo.Models {
     public class Database {
-        public void AddAnimal(Animal animal) {
-            Animal newAnimal = new Animal() {
+        public void AddAnimal(Animal animal) 
+        {
+            Species newSpecies = new()
+            {
+                Id = 1,
                 Name = "Lion",
-                Species = "Panthera leo",
-                Size = Animal.SizeClass.Large,
-                Diet = Animal.DietType.Carnivore,
-                Activity = Animal.ActivityPattern.Diurnal,
+                LatinName = "Panthera Leo",
+                Size = Species.SizeClass.Large,
+                Diet = Species.DietType.Carnivore,
+                Activity = Species.ActivityPattern.Diurnal,
                 Predator = true,
                 SpaceRequired = 50.0,
-                SecurityRequired = Animal.SecurityLevel.High,
+                SecurityRequired = Species.SecurityLevel.High
+            };
+
+            Animal newAnimal = new() 
+            {
+                Name = "Alex",
+                SpeciesId = 1, //Using above-made 'Lion'
                 EnclosureId = 1, // assuming an enclosure with Id 1 exists
-                CategoryId = 1 // assuming a category with Id 1 exists
             };
             
-            Database db = new Database();
+            Database db = new();
             db.AddAnimal(newAnimal);
         }
 

@@ -34,11 +34,11 @@ namespace Zoo {
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            using(var scope = app.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                DBInitializer.Initialize(services);
-            }
+            //using(var scope = app.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    DBInitializer.Initialize(services);
+            //}
 
             app.Run();
         }

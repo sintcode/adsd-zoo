@@ -1,9 +1,6 @@
 // In BusinessLogicService.cs
 using Zoo.Models;
 
-// In BusinessLogicService.cs
-using Zoo.Models;
-
 namespace Zoo.Services
 {
     public class BusinessLogicService : IBusinessLogicService

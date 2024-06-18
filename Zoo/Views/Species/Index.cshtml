@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Zoo.Models.Animal>
+﻿@model IEnumerable<Zoo.Models.Species>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,31 +16,25 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Species)
+                @Html.DisplayNameFor(model => model.LatinName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Size)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Diet)
+                @Html.DisplayNameFor(model => model.SpaceRequired)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Activity)
+                @Html.DisplayNameFor(model => model.Diet)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Predator)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SpaceRequired)
+                @Html.DisplayNameFor(model => model.Activity)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SecurityRequired)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EnclosureId)
             </th>
             <th></th>
         </tr>
@@ -52,31 +46,25 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Species)
+                @Html.DisplayFor(modelItem => item.LatinName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Size)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Diet)
+                @Html.DisplayFor(modelItem => item.SpaceRequired)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Activity)
+                @Html.DisplayFor(modelItem => item.Diet)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Predator)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SpaceRequired)
+                @Html.DisplayFor(modelItem => item.Activity)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SecurityRequired)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EnclosureId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -23,18 +23,11 @@ namespace TestZoo {
             Enclosure arcticDesert = new();
             arcticDesert.Climate = Enclosure.ClimateType.Arctic;
             arcticDesert.Habitat = Enclosure.HabitatType.Desert;
+            Species emperorPenguin = new(){Id = 1, Name = "Emperor Penguin"};
             Animal penguin = new(){
                 Id = 1, 
                 Name = "Jeff",
-                Species = "Emperor Penguin",
-                Size = Animal.SizeClass.Medium,
-                Diet = Animal.DietType.Piscivore,
-                Activity = Animal.ActivityPattern.Cathmeral,
-                Predator = true,
-                SpaceRequired = 5.0,
-                SecurityRequired = Animal.SecurityLevel.Low,
-                CategoryId = 1,
-                EnclosureId = 1
+                SpeciesId = 1
             };
             arcticDesert.Animals.Add(penguin);
             Assert.Equivalent(arcticDesert.Climate, Enclosure.ClimateType.Arctic);

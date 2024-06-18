@@ -2,13 +2,26 @@
 {
     public class Enclosure 
     {
+        //Primary Attributes
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Animal> Animals { get; set; } = [];
-        public enum ClimateType {Tropical, Temperate, Arctic, Arid};
+
+        //List of all Animals the Enclosure contains
+        public List<Animal> Animals { get; set; } = []; 
+        
+        //Size
+        public double Size { get; set; }
+
+        //For knowing if an enclosure is meant for predators and what species as putting predators with prey or other species of predators is a very bad idea
+        public bool PredatorEnclosure { get; set; }
+        public int? PredatorSpeciesId { get; set; } //Nullable
+        public Species? PredatorSpecies { get; set; } //Nullable
+
+        //Climate & Habitat
+        public enum ClimateType {Tropical, Temperate, Arctic, Arid, Rainforest};
         public ClimateType Climate { get; set; }
         [Flags]
-        public enum HabitatType 
+        public enum HabitatType //Multiple types selectable thanks to [Flags]
         {
             Forest = 1, 
             Aquatic = 2, 
@@ -17,11 +30,11 @@
             Tundra = 16,
             Marsh = 32
         };
-        public bool PredatorEnclosure { get; set; }
-        public bool PredatorSpecies { get; set; }
         public HabitatType Habitat { get; set; }
+
+        //Security Level
         public enum SecurityLevel {Low, Medium, High};
         public SecurityLevel SecurityRequired { get; set; }
-        public double Size { get; set; }
+
     }
 }

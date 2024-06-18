@@ -1,4 +1,4 @@
-﻿@model Zoo.Models.Animal
+﻿@model Zoo.Models.Species
 
 @{
     ViewData["Title"] = "Details";
@@ -7,7 +7,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Animal</h4>
+    <h4>Species</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -17,10 +17,10 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Species)
+            @Html.DisplayNameFor(model => model.LatinName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Species)
+            @Html.DisplayFor(model => model.LatinName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Size)
@@ -29,16 +29,16 @@
             @Html.DisplayFor(model => model.Size)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SpaceRequired)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SpaceRequired)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Diet)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Diet)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Activity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Activity)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Predator)
@@ -47,28 +47,16 @@
             @Html.DisplayFor(model => model.Predator)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SpaceRequired)
+            @Html.DisplayNameFor(model => model.Activity)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SpaceRequired)
+            @Html.DisplayFor(model => model.Activity)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.SecurityRequired)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.SecurityRequired)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CategoryId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EnclosureId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EnclosureId)
         </dd>
     </dl>
 </div>
