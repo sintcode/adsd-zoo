@@ -36,5 +36,8 @@
         public enum SecurityLevel {Low, Medium, High};
         public SecurityLevel SecurityRequired { get; set; }
 
+        //Zoo
+        public int ZooId { get; set; }
+        public ZooModel Zoo { get; set; }
     }
 }

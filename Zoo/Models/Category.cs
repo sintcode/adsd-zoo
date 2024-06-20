@@ -9,5 +9,9 @@
 
         //List of all Species a Category contains
         public List<Species> Species { get; set; } = [];
+
+        //Zoo
+        public int ZooId { get; set; }
+        public ZooModel Zoo { get; set; }
     }
 }

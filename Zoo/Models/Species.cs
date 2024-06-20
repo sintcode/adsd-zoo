@@ -12,7 +12,7 @@
         public SizeClass Size { get; set; }
         public double SpaceRequired { get; set; }
 
-        //Diet, includes whether or not the Species are predatory for safety checks later
+        //Diet, includes whether or not the Species is predatory for safety checks later
         public enum DietType {Carnivore, Omnivore, Herbivore, Insectivore, Piscivore};
         public DietType Diet { get; set; }
         public bool Predator { get; set; }

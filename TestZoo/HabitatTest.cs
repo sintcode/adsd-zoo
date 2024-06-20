@@ -2,7 +2,7 @@ using Zoo.Models;
 using Xunit;
 
 namespace TestZoo {
-    public class habitTest {
+    public class HabitatTest {
         [Fact]
         public void CanIdentifyClimateType() {
             Enclosure enclosure = new() { Climate = Enclosure.ClimateType.Tropical };

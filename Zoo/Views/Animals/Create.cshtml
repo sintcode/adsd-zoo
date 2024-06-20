@@ -1,0 +1,64 @@
+﻿@model Zoo.Models.Animal
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Animal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Animal.Genders>()" class="form-control"></select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personality" class="control-label"></label>
+                <input asp-for="Personality" class="form-control" />
+                <span asp-validation-for="Personality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferredDiet" class="control-label"></label>
+                <input asp-for="PreferredDiet" class="form-control" />
+                <span asp-validation-for="PreferredDiet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpeciesId" class="control-label"></label>
+                <select asp-for="SpeciesId" class ="form-control" asp-items="ViewBag.SpeciesId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZooId" class="control-label"></label>
+                <select asp-for="ZooId" class ="form-control" asp-items="ViewBag.ZooId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnclosureId" class="control-label"></label>
+                <select asp-for="EnclosureId" class ="form-control" asp-items="ViewBag.EnclosureId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,12 +1,11 @@
 using Zoo.Models;
 
 namespace TestZoo {
-    public class AnimalTest {
+    public class CreateAnimalTest {
         [Fact]
         public void CheckIfCarnivore() {
-            Animal dog = new();
-            Species germanShepard = new(){Id = 1, Diet = Species.DietType.Carnivore};
-            dog.SpeciesId = 1;
+            Species germanShepard = new(){Diet = Species.DietType.Carnivore};
+            Animal dog = new(){Species = germanShepard};
             Assert.Equivalent(dog.Species.Diet, Species.DietType.Carnivore);
         }
     }

@@ -2,18 +2,15 @@ using Zoo.Models;
 using Xunit;
 
 namespace TestZoo {
-    public class removeAnimal
-    {
+    public class AddAnimalToEnclosureTest {
 
         [Fact]
-        public void CanRemoveAnimal()
-        {
+        public void CanAddAnimal() {
             Enclosure enclosure = new();
             Animal animal = new() { Id = 1, Name = "Lion" };
             enclosure.Animals.Add(animal);
-            enclosure.Animals.Remove(animal);
 
-            Assert.DoesNotContain(animal, enclosure.Animals);
+            Assert.Contains(animal, enclosure.Animals);
         }
     }
 }
