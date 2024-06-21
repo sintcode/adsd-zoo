@@ -101,10 +101,15 @@ jobs:
       -
         name: Perform smoke tests
         run: |
-          # Run smoke tests against the deployed application
-          # Example: curl or send HTTP requests to check basic functionality
+          curl https://your-app-url.com/healthcheck
       -
         name: Monitor application logs and metrics
         run: |
-          # Monitor application logs and metrics for any errors or anomalies
-          # Example: Use log monitoring tools or custom scripts to analyze logs
+          cat path/to/your/log/file.txt > build_logs.txt
+          grep -i "error" build_logs.txt
+
+          echo "Uploading build logs..."
+          actions/upload-artifact@v3  
+            with:
+              name: build-logs  # Artifact name for downloaded logs
+              path: build_logs.txt
