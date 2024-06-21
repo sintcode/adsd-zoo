@@ -22,7 +22,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
-    <PackageReference Include="NBomber" Version="2.2.0" />
+    <PackageReference Include="NBomber" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
