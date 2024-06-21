@@ -66,12 +66,32 @@ jobs:
     needs: unit_test
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       -
-        name: Scan for security vulnerabilities
+        name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.x'
+
+      -
+        name: Install OWASP Dependency-Check
         run: |
-          # Use OWASP Dependency-Check or SonarQube with security plugins to scan for vulnerabilities
-          # Example: Run OWASP Dependency-Check against dependencies
-      # Add more steps as needed for security scanning and reporting
+          wget https://github.com/jeremylong/DependencyCheck/releases/download/v9.2.0/dependency-check-9.2.0-release.zip
+          unzip dependency-check-9.2.0-release.zip
+
+      -
+        name: Run OWASP Dependency-Check
+        run: |
+          ./dependency-check/bin/dependency-check.sh --project "My Project" --scan ./ --out . --format "ALL"
+
+      -
+        name: Archive vulnerability report
+        uses: actions/upload-artifact@v2
+        with:
+          name: dependency-check-report
+          path: dependency-check-report.html
           
   post_deployment_verification:
     runs-on: ubuntu-latest
