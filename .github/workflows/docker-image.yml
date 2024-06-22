@@ -107,10 +107,22 @@ jobs:
       -
         name: Monitor application logs and metrics
         run: |
-          cat path/to/your/log/file.txt > build_logs.txt
-          grep -i "error" build_logs.txt
-          echo "Uploading build logs..."
-          actions/upload-artifact@v3  
-            with:
-              name: build-logs  # Artifact name for downloaded logs
-              path: build_logs.txt
+          # cat path/to/your/log/file.txt > build_logs.txt
+          # grep -i "error" build_logs.txt
+          # echo "Uploading build logs..."
+          # actions/upload-artifact@v3  
+          #   with:
+          #     name: build-logs  # Artifact name for downloaded logs
+          #     path: build_logs.txt
+          FILE=path/to/your/log/file.txt
+          if test -f "$FILE"; then
+            cat $FILE > build_logs.txt
+            grep -i "error" build_logs.txt
+            echo "Uploading build logs..."
+            actions/upload-artifact@v3  
+              with:
+                name: build-logs  # Artifact name for downloaded logs
+                path: build_logs.txt
+          else 
+            echo "$FILE does not exist."
+          fi
