@@ -9,7 +9,7 @@ on:
 jobs:
 
 
-  testing:
+  unit_test:
     runs-on: ubuntu-latest
     needs: build
 
