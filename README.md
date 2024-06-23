@@ -2,4 +2,5 @@
 ## Badges
 ### CI / CD tests:
 [![Docker Image CI](https://github.com/sintcode/adsd-zoo/actions/workflows/CI-CD.yaml/badge.svg)](https://github.com/sintcode/adsd-zoo/actions/workflows/CI-CD.yaml)
-[![Docker Image CI](https://github.com/sintcode/adsd-zoo/actions/workflows/docker-image.yml/badge.svg?branch=master&event=deployment)](https://github.com/sintcode/adsd-zoo/actions/workflows/docker-image.yml)
+### Build Test:
+[![.NET](https://github.com/sintcode/adsd-zoo/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/sintcode/adsd-zoo/actions/workflows/dotnet.yml)
