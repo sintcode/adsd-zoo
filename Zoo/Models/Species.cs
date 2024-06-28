@@ -27,5 +27,8 @@
 
         //Categories, made into List as a Species can potentionally be part of multiple categories, example: Quadraped, Mammal
         public List<Category> Categories { get; set; } = [];
+
+        //Animals, includes all animals belonging to a species, can include from multiple Zoos
+        public List<Animal> Animals { get; set; } = [];
     }
 }
