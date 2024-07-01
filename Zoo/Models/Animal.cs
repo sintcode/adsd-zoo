@@ -17,14 +17,17 @@ namespace Zoo.Models
         [Required]
         public Genders Gender { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
         public double Weight { get; set; }
 
         //Optional extra details about an Animal
         [AllowNull]
         public string Personality { get; set; } //Nullable, optional information
         [AllowNull]
-        public List<string> PreferredDiet { get; set; } = [];//Nullable, optional information, consider this 'Prey' for predators
-        //Fun story, looking up Animal APIs, a Koala has the Prey 'Eucalyptus Leaves', I guess some people would be happy to hear that
+        public List<string> PreferredDiet { get; set; } = [];//Nullable, optional information, consider this 'Prey' requirement for predators
+        //You don't feed other Animals from the Zoo to eachother! A lion might eat (and prefer) zebra meat, but not a live one when living inside a zoo!
+        //tl;dr Feeding live animals is pretty much illegal everywhere and very cruel, therefore 'PreferredDiet' instead of 'Prey'
+        //Funny story though, looking up Animal APIs, a Koala has the Prey 'Eucalyptus Leaves', I guess some people would be happy to hear that
 
         //Species, not nullable as Animals ALWAYS have a species
         [ForeignKey("Species")]

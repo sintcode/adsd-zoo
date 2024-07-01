@@ -29,7 +29,7 @@ namespace Zoo.Models
         public bool Predator { get; set; }
 
         //Activity
-        public enum ActivityPattern {Diurnal, Nocturnal, Cathmeral};
+        public enum ActivityPattern {Diurnal, Nocturnal, Cathemeral};
         [Required]
         public ActivityPattern Activity { get; set; }
 

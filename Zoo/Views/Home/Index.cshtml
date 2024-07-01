@@ -5,4 +5,40 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Dieren 🐍🐘🦓🦍</p>
+
+    <div>
+        @{
+            foreach(ZooModel zoo in ViewBag.Zoos)
+            {
+                <div class="bg-primary text-white col-10 mx-auto rounded p-3 mb-5">
+                    <ul class="bg-secondary py-2 rounded border border-opacity-25 list-unstyled">
+                        <h1>@zoo.Name</h1>
+                        <hr class="col-11 mx-auto"/>
+                        @foreach(Enclosure enclosure in ViewBag.Enclosures)
+                        {
+                            if(enclosure.Animals.Any()){ 
+                            <li>
+                                <h3>@enclosure.Name</h3>
+                                <ul class="col-10 mx-auto bg-black bg-opacity-25 rounded list-unstyled p-2">
+                                    @foreach(Animal animal in ViewBag.Animals)
+                                    {
+                                        if(animal.Enclosure == enclosure)
+                                        {
+                                            <a asp-controller="Animals" asp-action="Details" asp-route-id="@animal.Id" class="text-decoration-none text-white">
+                                                <li class="col-11 mx-auto rounded border border-opacity-25 my-2 bg-primary bg-gradient bg-opacity-50">
+                                                    <p class="my-1">@animal.Name (@animal.Species.Name)</p>      
+                                                </li>
+                                            </a>
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                            <hr class="col-11 mx-auto"/>
+                            }
+                        }
+                    </ul>
+                </div>
+            }
+        }
+    </div>
 </div>

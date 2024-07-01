@@ -69,56 +69,23 @@ namespace Zoo.Data
                 .RuleFor(z => z.Description, f => f.Lorem.Sentence(5))
                 .RuleFor(z => z.Country, f => f.Address.Country())
                 .RuleFor(z => z.City, f => f.Address.City())
-                .Generate(amount / (amount / 2));
+                .Generate(new Random().Next(1,amount/5));
         }
 
         static void SpeciesSeeder(int amount) 
         {
-            //Yes, I asked ChatGPT, though ideally they would be pulled from an API
-            List<(string common, string latin)> speciesNames = [
-                ("Lion", "Panthera leo"),
-                ("Elephant", "Loxodonta africana"),
-                ("Tiger", "Panthera tigris"),
-                ("Giraffe", "Giraffa camelopardalis"),
-                ("Zebra", "Equus quagga"),
-                ("Penguin", "Spheniscus demersus"),
-                ("Koala", "Phascolarctos cinereus"),
-                ("Dolphin", "Tursiops truncatus"),
-                ("Sloth", "Bradypus variegatus"),
-                ("Jaguar", "Panthera onca"),
-                ("Eagle", "Aquila chrysaetos"),
-                ("Octopus", "Octopus vulgaris"),
-                ("Polar Bear", "Ursus maritimus"),
-                ("Kangaroo", "Macropus giganteus"),
-                ("Cheetah", "Acinonyx jubatus"),
-                ("Wolf", "Canis lupus"),
-                ("Bear", "Ursus arctos"),
-                ("Rhino", "Diceros bicornis"),
-                ("Hippo", "Hippopotamus amphibius"),
-                ("Gorilla", "Gorilla beringei"),
-                ("Panda", "Ailuropoda melanoleuca"),
-                ("Squirrel", "Sciurus carolinensis"),
-                ("Fox", "Vulpes vulpes"),
-                ("Owl", "Strix aluco"),
-                ("Crocodile", "Crocodylus niloticus"),
-                ("Pangolin", "Manis javanica"),
-                ("Puma", "Puma concolor"),
-                ("Toucan", "Ramphastos toco"),
-                ("Chameleon", "Chamaeleo chamaeleon"),
-                ("Meerkat", "Suricata suricatta")
-            ];
-
+            //Unfortunately generates illogical data such as vegan lions that are actually fish
             SpeciesList = new Faker<Species>()
                 .RuleFor(s => s.Id, f => f.IndexFaker + 1)
-                .RuleFor(s => s.Name, f => f.PickRandom(speciesNames).common)
-                .RuleFor(s => s.LatinName, f => f.PickRandom(speciesNames).latin)
+                .RuleFor(s => s.Name, f => f.PickRandom(SeedingData.SpeciesSeedingList).Name)
+                .RuleFor(s => s.LatinName, f => f.PickRandom(SeedingData.SpeciesSeedingList).LatinName)
                 .RuleFor(s => s.Size, f => f.PickRandom<Species.SizeClass>())
                 .RuleFor(s => s.SpaceRequired, f => f.Random.Double(10, 100))
                 .RuleFor(s => s.Diet, f => f.PickRandom<Species.DietType>())
                 .RuleFor(s => s.Predator, f => f.Random.Bool())
                 .RuleFor(s => s.Activity, f => f.PickRandom<Species.ActivityPattern>())
                 .RuleFor(s => s.SecurityRequired, f => f.PickRandom<Species.SecurityLevel>())
-                .Generate(amount / 2);
+                .Generate(new Random().Next(amount/3, (int)(amount/1.5)));
         }
 
         static void CategorySeeder(int amount) 
@@ -128,7 +95,7 @@ namespace Zoo.Data
                 .RuleFor(c => c.Name, f => f.Lorem.Word())
                 .RuleFor(c => c.Description, f => f.Lorem.Sentence(10))
                 .RuleFor(c => c.ZooId, f => f.PickRandom(Zoos).Id)
-                .Generate(amount / 2);
+                .Generate(new Random().Next(amount/4, amount/2));
         }
 
         static void EnclosureSeeder(int amount) 
@@ -143,7 +110,7 @@ namespace Zoo.Data
                 .RuleFor(e => e.PredatorEnclosure, f => f.Random.Bool())
                 .RuleFor(e => e.ZooId, f => f.PickRandom(Zoos).Id)
                 .RuleFor(e => e.PredatorSpeciesId, f => f.PickRandom(SpeciesList).Id)
-                .Generate(amount / 2);
+                .Generate(new Random().Next(amount/4, amount/2));
         }
 
         static void AnimalSeeder(int amount) 
@@ -153,11 +120,11 @@ namespace Zoo.Data
                 .RuleFor(a => a.Name, f => f.Name.FirstName())
                 .RuleFor(a => a.Gender, f => f.PickRandom<Animal.Genders>())
                 .RuleFor(a => a.Weight, f => f.Random.Double(1, 1000)) //Yes, you can have a 1kg elephant
-                .RuleFor(a => a.Personality, f => f.Name.FirstName())
+                .RuleFor(a => a.Personality, f => f.Commerce.Color())
                 .RuleFor(a => a.ZooId, f => f.PickRandom(Zoos).Id)
                 .RuleFor(a => a.SpeciesId, f => f.PickRandom(SpeciesList).Id)
                 .RuleFor(a => a.EnclosureId, f => f.PickRandom(Enclosures).Id)
-                .Generate(amount * 2);
+                .Generate(new Random().Next(amount, amount*2));
         }
     }
 }
