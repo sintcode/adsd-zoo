@@ -29,7 +29,7 @@ namespace Zoo.Controllers
         // GET: Categories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
@@ -37,7 +37,7 @@ namespace Zoo.Controllers
             var category = await _context.Category
                 .Include(c => c.Zoo)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
+            if(category == null)
             {
                 return NotFound();
             }
@@ -59,7 +59,7 @@ namespace Zoo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,ZooId")] Category category)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 _context.Add(category);
                 await _context.SaveChangesAsync();
@@ -72,17 +72,17 @@ namespace Zoo.Controllers
         // GET: Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
 
             var category = await _context.Category.FindAsync(id);
-            if (category == null)
+            if(category == null)
             {
                 return NotFound();
             }
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", category.ZooId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", category.ZooId);
             return View(category);
         }
 
@@ -93,21 +93,21 @@ namespace Zoo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,ZooId")] Category category)
         {
-            if (id != category.Id)
+            if(id != category.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(category);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch(DbUpdateConcurrencyException)
                 {
-                    if (!CategoryExists(category.Id))
+                    if(!CategoryExists(category.Id))
                     {
                         return NotFound();
                     }
@@ -118,14 +118,14 @@ namespace Zoo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", category.ZooId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", category.ZooId);
             return View(category);
         }
 
         // GET: Categories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
@@ -133,7 +133,7 @@ namespace Zoo.Controllers
             var category = await _context.Category
                 .Include(c => c.Zoo)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
+            if(category == null)
             {
                 return NotFound();
             }
@@ -147,7 +147,7 @@ namespace Zoo.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var category = await _context.Category.FindAsync(id);
-            if (category != null)
+            if(category != null)
             {
                 _context.Category.Remove(category);
             }

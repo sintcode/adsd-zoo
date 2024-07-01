@@ -1,8 +1,5 @@
 ﻿@model IEnumerable<Zoo.Models.Animal>
-
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
 <h1>Index</h1>
 
@@ -25,7 +22,8 @@
                 @Html.DisplayNameFor(model => model.Personality)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PreferredDiet)
+                Preferred Diet 
+                @* No space really annoyed me, so here we go *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Species)
@@ -40,38 +38,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Personality)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreferredDiet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Species.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Zoo.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Enclosure.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Personality)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PreferredDiet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Species.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zoo.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enclosure.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

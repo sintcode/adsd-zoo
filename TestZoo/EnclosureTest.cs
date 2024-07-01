@@ -1,10 +1,12 @@
 ﻿using Zoo.Models;
 
-namespace TestZoo {
-    public class EnclosureTest {
+namespace TestZoo
+{
+    public class EnclosureTest
+    {
 
         [Fact]
-        public void CheckIfTropical() 
+        public void CheckIfTropical()
         {
             Enclosure rainForest = new();
             rainForest.Climate = Enclosure.ClimateType.Tropical;
@@ -16,15 +18,15 @@ namespace TestZoo {
         {
             Enclosure highSecurity = new();
             highSecurity.SecurityRequired = Enclosure.SecurityLevel.High;
-            Assert.Equivalent(highSecurity.SecurityRequired,Enclosure.SecurityLevel.High);
+            Assert.Equivalent(highSecurity.SecurityRequired, Enclosure.SecurityLevel.High);
         }
 
         [Fact]
         public void CheckIfArcticDesertContainsPenguin()
         {
-            Enclosure arcticDesert = new(){Climate = Enclosure.ClimateType.Arctic, Habitat = Enclosure.HabitatType.Desert};
-            Species emperorPenguin = new(){Id = 1, Name = "Emperor Penguin"};
-            Animal penguin = new(){Name = "Jeff", Species = emperorPenguin};
+            Enclosure arcticDesert = new() { Climate = Enclosure.ClimateType.Arctic, Habitat = Enclosure.HabitatType.Desert };
+            Species emperorPenguin = new() { Id = 1, Name = "Emperor Penguin" };
+            Animal penguin = new() { Name = "Jeff", Species = emperorPenguin };
             arcticDesert.Animals.Add(penguin);
             Assert.Equivalent(arcticDesert.Climate, Enclosure.ClimateType.Arctic);
             Assert.Equivalent(arcticDesert.Habitat, Enclosure.HabitatType.Desert);

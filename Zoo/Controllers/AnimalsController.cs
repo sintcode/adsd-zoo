@@ -29,7 +29,7 @@ namespace Zoo.Controllers
         // GET: Animals/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
@@ -39,7 +39,7 @@ namespace Zoo.Controllers
                 .Include(a => a.Species)
                 .Include(a => a.Zoo)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (animal == null)
+            if(animal == null)
             {
                 return NotFound();
             }
@@ -50,9 +50,9 @@ namespace Zoo.Controllers
         // GET: Animals/Create
         public IActionResult Create()
         {
-            ViewData["EnclosureId"] = new SelectList(_context.Enclosure, "Id", "Id");
-            ViewData["SpeciesId"] = new SelectList(_context.Species, "Id", "Id");
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id");
+            ViewData["EnclosureId"] = new SelectList(_context.Enclosure, "Id", "Name");
+            ViewData["SpeciesId"] = new SelectList(_context.Species, "Id", "Name");
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name");
             return View();
         }
 
@@ -63,34 +63,34 @@ namespace Zoo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Gender,Weight,Personality,PreferredDiet,SpeciesId,ZooId,EnclosureId")] Animal animal)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 _context.Add(animal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EnclosureId"] = new SelectList(_context.Enclosure, "Id", "Id", animal.EnclosureId);
-            ViewData["SpeciesId"] = new SelectList(_context.Species, "Id", "Id", animal.SpeciesId);
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", animal.ZooId);
+            ViewData["EnclosureId"] = new SelectList(_context.Enclosure, "Id", "Name", animal.EnclosureId);
+            ViewData["SpeciesId"] = new SelectList(_context.Species, "Id", "Name", animal.SpeciesId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", animal.ZooId);
             return View(animal);
         }
 
         // GET: Animals/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
 
             var animal = await _context.Animal.FindAsync(id);
-            if (animal == null)
+            if(animal == null)
             {
                 return NotFound();
             }
-            ViewData["EnclosureId"] = new SelectList(_context.Enclosure, "Id", "Id", animal.EnclosureId);
-            ViewData["SpeciesId"] = new SelectList(_context.Species, "Id", "Id", animal.SpeciesId);
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", animal.ZooId);
+            ViewData["EnclosureId"] = new SelectList(_context.Enclosure, "Id", "Name", animal.EnclosureId);
+            ViewData["SpeciesId"] = new SelectList(_context.Species, "Id", "Name", animal.SpeciesId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", animal.ZooId);
             return View(animal);
         }
 
@@ -101,21 +101,21 @@ namespace Zoo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Gender,Weight,Personality,PreferredDiet,SpeciesId,ZooId,EnclosureId")] Animal animal)
         {
-            if (id != animal.Id)
+            if(id != animal.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(animal);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch(DbUpdateConcurrencyException)
                 {
-                    if (!AnimalExists(animal.Id))
+                    if(!AnimalExists(animal.Id))
                     {
                         return NotFound();
                     }
@@ -126,16 +126,16 @@ namespace Zoo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EnclosureId"] = new SelectList(_context.Enclosure, "Id", "Id", animal.EnclosureId);
-            ViewData["SpeciesId"] = new SelectList(_context.Species, "Id", "Id", animal.SpeciesId);
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", animal.ZooId);
+            ViewData["EnclosureId"] = new SelectList(_context.Enclosure, "Id", "Name", animal.EnclosureId);
+            ViewData["SpeciesId"] = new SelectList(_context.Species, "Id", "Name", animal.SpeciesId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", animal.ZooId);
             return View(animal);
         }
 
         // GET: Animals/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
@@ -145,7 +145,7 @@ namespace Zoo.Controllers
                 .Include(a => a.Species)
                 .Include(a => a.Zoo)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (animal == null)
+            if(animal == null)
             {
                 return NotFound();
             }
@@ -159,7 +159,7 @@ namespace Zoo.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var animal = await _context.Animal.FindAsync(id);
-            if (animal != null)
+            if(animal != null)
             {
                 _context.Animal.Remove(animal);
             }

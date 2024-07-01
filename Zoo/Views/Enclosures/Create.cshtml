@@ -1,5 +1,4 @@
 ﻿@model Zoo.Models.Enclosure
-
 @{
     ViewData["Title"] = "Create";
 }
@@ -24,12 +23,12 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PredatorEnclosure" /> @Html.DisplayNameFor(model => model.PredatorEnclosure)
+                    <input class="form-check-input" asp-for="PredatorEnclosure" /> Predator Enclosure?
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="PredatorSpeciesId" class="control-label"></label>
-                <select asp-for="PredatorSpeciesId" class ="form-control" asp-items="ViewBag.PredatorSpeciesId"></select>
+                <label asp-for="PredatorSpeciesId" class="control-label">Predator Species</label>
+                <select asp-for="PredatorSpeciesId" class="form-control" asp-items="ViewBag.PredatorSpeciesId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Climate" class="control-label"></label>
@@ -38,17 +37,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="Habitat" class="control-label"></label>
-                <input asp-for="Habitat" class="form-control" />
+                <select asp-for="Habitat" class="form-control" multiple>
+                    @* I am surprised it actually went this easy (and that it actually works) *@
+                    @foreach(Enclosure.HabitatType Habitat in Enum.GetValues(typeof(Enclosure.HabitatType)).Cast<Enclosure.HabitatType>())
+                    {
+                        <option value="@Convert.ToInt32(Habitat)">@Habitat.ToString()</option>
+                    }
+                </select>
                 <span asp-validation-for="Habitat" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SecurityRequired" class="control-label"></label>
+                <label asp-for="SecurityRequired" class="control-label">Required Security</label>
                 <select asp-for="SecurityRequired" asp-items="Html.GetEnumSelectList<Enclosure.SecurityLevel>()" class="form-control"></select>
                 <span asp-validation-for="SecurityRequired" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ZooId" class="control-label"></label>
-                <select asp-for="ZooId" class ="form-control" asp-items="ViewBag.ZooId"></select>
+                <label asp-for="ZooId" class="control-label">Zoo</label>
+                <select asp-for="ZooId" class="form-control" asp-items="ViewBag.ZooId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -62,5 +67,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

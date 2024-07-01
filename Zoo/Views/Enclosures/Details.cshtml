@@ -23,16 +23,16 @@
             @Html.DisplayFor(model => model.Size)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PredatorEnclosure)
+            Predator Enclosure?
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PredatorEnclosure)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PredatorSpecies)
+            Predator Species
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PredatorSpecies.Id)
+            @Html.DisplayFor(model => model.PredatorSpecies.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Climate)
@@ -47,7 +47,7 @@
             @Html.DisplayFor(model => model.Habitat)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SecurityRequired)
+            Security Required
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.SecurityRequired)
@@ -56,7 +56,7 @@
             @Html.DisplayNameFor(model => model.Zoo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Zoo.Id)
+            @Html.DisplayFor(model => model.Zoo.Name)
         </dd>
     </dl>
 </div>

@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Zoo.Data;
 
-namespace Zoo.Models {
-    public class Database {
+namespace Zoo.Models 
+{
+    public class Database 
+    {
         private List<Animal> animals = new List<Animal>();
 
         public void AddAnimal(Animal animal)

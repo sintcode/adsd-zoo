@@ -29,7 +29,7 @@ namespace Zoo.Controllers
         // GET: Enclosures/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
@@ -38,7 +38,7 @@ namespace Zoo.Controllers
                 .Include(e => e.PredatorSpecies)
                 .Include(e => e.Zoo)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (enclosure == null)
+            if(enclosure == null)
             {
                 return NotFound();
             }
@@ -49,8 +49,8 @@ namespace Zoo.Controllers
         // GET: Enclosures/Create
         public IActionResult Create()
         {
-            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Id");
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id");
+            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Name");
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name");
             return View();
         }
 
@@ -61,32 +61,32 @@ namespace Zoo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Size,PredatorEnclosure,PredatorSpeciesId,Climate,Habitat,SecurityRequired,ZooId")] Enclosure enclosure)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 _context.Add(enclosure);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Id", enclosure.PredatorSpeciesId);
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", enclosure.ZooId);
+            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Name", enclosure.PredatorSpeciesId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", enclosure.ZooId);
             return View(enclosure);
         }
 
         // GET: Enclosures/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
 
             var enclosure = await _context.Enclosure.FindAsync(id);
-            if (enclosure == null)
+            if(enclosure == null)
             {
                 return NotFound();
             }
-            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Id", enclosure.PredatorSpeciesId);
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", enclosure.ZooId);
+            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Name", enclosure.PredatorSpeciesId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", enclosure.ZooId);
             return View(enclosure);
         }
 
@@ -97,21 +97,21 @@ namespace Zoo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Size,PredatorEnclosure,PredatorSpeciesId,Climate,Habitat,SecurityRequired,ZooId")] Enclosure enclosure)
         {
-            if (id != enclosure.Id)
+            if(id != enclosure.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(enclosure);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch(DbUpdateConcurrencyException)
                 {
-                    if (!EnclosureExists(enclosure.Id))
+                    if(!EnclosureExists(enclosure.Id))
                     {
                         return NotFound();
                     }
@@ -122,7 +122,7 @@ namespace Zoo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Id", enclosure.PredatorSpeciesId);
+            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Name", enclosure.PredatorSpeciesId);
             ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", enclosure.ZooId);
             return View(enclosure);
         }
@@ -130,7 +130,7 @@ namespace Zoo.Controllers
         // GET: Enclosures/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return NotFound();
             }
@@ -139,7 +139,7 @@ namespace Zoo.Controllers
                 .Include(e => e.PredatorSpecies)
                 .Include(e => e.Zoo)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (enclosure == null)
+            if(enclosure == null)
             {
                 return NotFound();
             }
@@ -153,7 +153,7 @@ namespace Zoo.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var enclosure = await _context.Enclosure.FindAsync(id);
-            if (enclosure != null)
+            if(enclosure != null)
             {
                 _context.Enclosure.Remove(enclosure);
             }
