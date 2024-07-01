@@ -27,13 +27,22 @@ namespace Zoo.Data
 
         protected override void OnModelCreating(ModelBuilder builder) 
         {
-            //Building from Parents to Children
+            //DeleteBehavior.Restrict was intended to make all the foreign keys null when deleting something, unfortunately IT DOESNT WORK AS ADVERTISED
+            //Building from Parents to Children (One-To-Many)
             builder.Entity<ZooModel>().HasMany(z => z.Categories).WithOne(c => c.Zoo).HasForeignKey(c => c.ZooId).OnDelete(DeleteBehavior.Restrict);
             builder.Entity<ZooModel>().HasMany(z => z.Enclosures).WithOne(e => e.Zoo).HasForeignKey(e => e.ZooId).OnDelete(DeleteBehavior.Restrict);
             builder.Entity<ZooModel>().HasMany(z => z.Animals).WithOne(a => a.Zoo).HasForeignKey(a => a.ZooId).OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<Category>().HasMany(c => c.Species).WithMany(c => c.Categories);
             builder.Entity<Enclosure>().HasMany(e => e.Animals).WithOne(a => a.Enclosure).HasForeignKey(a => a.EnclosureId).OnDelete(DeleteBehavior.Restrict);
             builder.Entity<Species>().HasMany(s => s.Animals).WithOne(a => a.Species).HasForeignKey(a => a.SpeciesId).OnDelete(DeleteBehavior.Restrict);
+
+            //Many-To-Many
+            builder.Entity<Category>().HasMany(c => c.Species).WithMany(s => s.Categories);
+            builder.Entity<Species>().HasMany(s => s.Categories).WithMany(s => s.Species);
+
+            //Reverse relations (Many-To-One)
+            builder.Entity<Category>().HasOne(c => c.Zoo).WithMany(z => z.Categories).HasForeignKey(c => c.ZooId).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Enclosure>().HasOne(e => e.Zoo).WithMany(z => z.Enclosures).HasForeignKey(e => e.ZooId).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Animal>().HasOne(a => a.Zoo).WithMany(z => z.Animals).HasForeignKey(a => a.ZooId).OnDelete(DeleteBehavior.Restrict);
 
             //Call Seed function
             Seed();
@@ -66,7 +75,7 @@ namespace Zoo.Data
             Zoos = new Faker<ZooModel>()
                 .RuleFor(z => z.Id, f => f.IndexFaker + 1)
                 .RuleFor(z => z.Name, f => f.Company.CompanyName())
-                .RuleFor(z => z.Description, f => f.Lorem.Sentence(5))
+                .RuleFor(z => z.Description, f => f.Rant.Review())
                 .RuleFor(z => z.Country, f => f.Address.Country())
                 .RuleFor(z => z.City, f => f.Address.City())
                 .Generate(new Random().Next(1,amount/5));
@@ -92,8 +101,8 @@ namespace Zoo.Data
         {
             Categories = new Faker<Category>()
                 .RuleFor(c => c.Id, f => f.IndexFaker + 1)
-                .RuleFor(c => c.Name, f => f.Lorem.Word())
-                .RuleFor(c => c.Description, f => f.Lorem.Sentence(10))
+                .RuleFor(c => c.Name, f => f.Commerce.Product())
+                .RuleFor(c => c.Description, f => f.Commerce.ProductDescription())
                 .RuleFor(c => c.ZooId, f => f.PickRandom(Zoos).Id)
                 .Generate(new Random().Next(amount/4, amount/2));
         }
@@ -102,14 +111,14 @@ namespace Zoo.Data
         {
             Enclosures = new Faker<Enclosure>()
                 .RuleFor(e => e.Id, f => f.IndexFaker + 1)
-                .RuleFor(e => e.Name, f => f.Lorem.Word())
+                .RuleFor(e => e.Name, f => f.Address.Country())
                 .RuleFor(e => e.Size, f => f.Random.Double(100, 1000))
                 .RuleFor(e => e.Climate, f => f.PickRandom<Enclosure.ClimateType>())
                 .RuleFor(e => e.Habitat, f => f.PickRandom<Enclosure.HabitatType>())
                 .RuleFor(e => e.SecurityRequired, f => f.PickRandom<Enclosure.SecurityLevel>())
                 .RuleFor(e => e.PredatorEnclosure, f => f.Random.Bool())
                 .RuleFor(e => e.ZooId, f => f.PickRandom(Zoos).Id)
-                .RuleFor(e => e.PredatorSpeciesId, f => f.PickRandom(SpeciesList).Id)
+                .RuleFor(e => e.PredatorSpeciesId, f => f.PickRandom(SpeciesList).Id) //Tried adding .OrNull but it stops working
                 .Generate(new Random().Next(amount/4, amount/2));
         }
 

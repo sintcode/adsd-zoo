@@ -29,20 +29,25 @@ namespace Zoo.Models
         //tl;dr Feeding live animals is pretty much illegal everywhere and very cruel, therefore 'PreferredDiet' instead of 'Prey'
         //Funny story though, looking up Animal APIs, a Koala has the Prey 'Eucalyptus Leaves', I guess some people would be happy to hear that
 
-        //Species, not nullable as Animals ALWAYS have a species
+        //Species
+        [AllowNull]
         [ForeignKey("Species")]
         public int SpeciesId { get; set; }
+        [AllowNull]
         public Species Species { get; set; }
 
         //Zoo
+        [AllowNull]
         [ForeignKey("Zoo")]
         public int ZooId { get; set; }
+        [AllowNull]
         public ZooModel Zoo { get; set; }
 
-        //Enclosure, nullable as assignment to Enclosure is not a guarantee
+        //Enclosure
         [AllowNull]
         [ForeignKey("Enclosure")]
         public int EnclosureId { get; set; }
+        [AllowNull]
         public Enclosure Enclosure { get; set; }
     }
 }

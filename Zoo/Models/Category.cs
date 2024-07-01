@@ -21,8 +21,10 @@ namespace Zoo.Models
         public List<Species> Species { get; set; } = [];
 
         //Zoo
+        [AllowNull]
         [ForeignKey("Zoo")]
         public int ZooId { get; set; }
+        [AllowNull]
         public ZooModel Zoo { get; set; }
     }
 }

@@ -49,8 +49,8 @@ namespace Zoo.Controllers
         // GET: Enclosures/Create
         public IActionResult Create()
         {
-            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Id");
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id");
+            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Name");
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace Zoo.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Id", enclosure.PredatorSpeciesId);
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", enclosure.ZooId);
+            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Name", enclosure.PredatorSpeciesId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", enclosure.ZooId);
             return View(enclosure);
         }
 
@@ -85,8 +85,8 @@ namespace Zoo.Controllers
             {
                 return NotFound();
             }
-            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Id", enclosure.PredatorSpeciesId);
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", enclosure.ZooId);
+            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Name", enclosure.PredatorSpeciesId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", enclosure.ZooId);
             return View(enclosure);
         }
 
@@ -122,7 +122,7 @@ namespace Zoo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Id", enclosure.PredatorSpeciesId);
+            ViewData["PredatorSpeciesId"] = new SelectList(_context.Species, "Id", "Name", enclosure.PredatorSpeciesId);
             ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", enclosure.ZooId);
             return View(enclosure);
         }

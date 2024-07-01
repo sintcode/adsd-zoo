@@ -16,6 +16,7 @@ namespace Zoo.Models
         
         //Size
         [Required]
+        [DisplayFormat(DataFormatString = "{0:0}", ApplyFormatInEditMode = true)]
         public double Size { get; set; }
 
         //Climate & Habitat
@@ -50,14 +51,18 @@ namespace Zoo.Models
         [Required]
         public bool PredatorEnclosure { get; set; }
 
+        //Not just 'Species' as it's only relevant if Predators are in the enclosure, prey can live together (usually)
         [AllowNull]
         [ForeignKey("Species")]
         public int PredatorSpeciesId { get; set; } //Nullable
+        [AllowNull]
         public Species PredatorSpecies { get; set; } //Nullable
 
         //Zoo
+        [AllowNull]
         [ForeignKey("Zoo")]
         public int ZooId { get; set; }
+        [AllowNull]
         public ZooModel Zoo { get; set; }
     }
 }

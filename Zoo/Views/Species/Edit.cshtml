@@ -12,7 +12,6 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -25,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Size" class="control-label"></label>
-                <select asp-for="Size" class="form-control"></select>
+                <select asp-for="Size" asp-items="Html.GetEnumSelectList<Species.SizeClass>()" class="form-control"></select>
                 <span asp-validation-for="Size" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Diet" class="control-label"></label>
-                <select asp-for="Diet" class="form-control"></select>
+                <select asp-for="Diet" asp-items="Html.GetEnumSelectList<Species.DietType>()" class="form-control"></select>
                 <span asp-validation-for="Diet" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
@@ -45,12 +44,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Activity" class="control-label"></label>
-                <select asp-for="Activity" class="form-control"></select>
+                <select asp-for="Activity" asp-items="Html.GetEnumSelectList<Species.ActivityPattern>()" class="form-control"></select>
                 <span asp-validation-for="Activity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SecurityRequired" class="control-label"></label>
-                <select asp-for="SecurityRequired" class="form-control"></select>
+                <select asp-for="SecurityRequired" asp-items="Html.GetEnumSelectList<Species.SecurityLevel>()" class="form-control"></select>
                 <span asp-validation-for="SecurityRequired" class="text-danger"></span>
             </div>
             <div class="form-group">

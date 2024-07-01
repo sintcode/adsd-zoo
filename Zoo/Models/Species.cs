@@ -19,6 +19,7 @@ namespace Zoo.Models
         [Required]
         public SizeClass Size { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0:0}", ApplyFormatInEditMode = true)]
         public double SpaceRequired { get; set; }
 
         //Diet, includes whether or not the Species is predatory for safety checks later

@@ -19,10 +19,10 @@
                 @Html.DisplayNameFor(model => model.Size)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PredatorEnclosure)
+                Predator Enclosure?
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PredatorSpecies)
+                Predator Species
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Climate)
@@ -31,7 +31,7 @@
                 @Html.DisplayNameFor(model => model.Habitat)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SecurityRequired)
+                Security Required
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Zoo)
@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.PredatorEnclosure)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PredatorSpecies.Id)
+                @Html.DisplayFor(modelItem => item.PredatorSpecies.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Climate)
@@ -64,7 +64,7 @@
                 @Html.DisplayFor(modelItem => item.SecurityRequired)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Zoo.Id)
+                @Html.DisplayFor(modelItem => item.Zoo.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -12,7 +12,6 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -25,33 +24,36 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PredatorEnclosure" /> @Html.DisplayNameFor(model => model.PredatorEnclosure)
+                    <input class="form-check-input" asp-for="PredatorEnclosure" /> Predator Enclosure?
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="PredatorSpeciesId" class="control-label"></label>
+                <label asp-for="PredatorSpeciesId" class="control-label">Predator Species</label>
                 <select asp-for="PredatorSpeciesId" class="form-control" asp-items="ViewBag.PredatorSpeciesId"></select>
-                <span asp-validation-for="PredatorSpeciesId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Climate" class="control-label"></label>
-                <select asp-for="Climate" class="form-control"></select>
+                <select asp-for="Climate" asp-items="Html.GetEnumSelectList<Enclosure.ClimateType>()" class="form-control"></select>
                 <span asp-validation-for="Climate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Habitat" class="control-label"></label>
-                <input asp-for="Habitat" class="form-control" />
+                <select asp-for="Habitat" class="form-control" multiple>
+                    @foreach(Enclosure.HabitatType Habitat in Enum.GetValues(typeof(Enclosure.HabitatType)).Cast<Enclosure.HabitatType>())
+                    {
+                        <option value="@Convert.ToInt32(Habitat)">@Habitat.ToString()</option>
+                    }
+                </select>
                 <span asp-validation-for="Habitat" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SecurityRequired" class="control-label"></label>
-                <select asp-for="SecurityRequired" class="form-control"></select>
+                <label asp-for="SecurityRequired" class="control-label">Required Security</label>
+                <select asp-for="SecurityRequired" asp-items="Html.GetEnumSelectList<Enclosure.SecurityLevel>()" class="form-control"></select>
                 <span asp-validation-for="SecurityRequired" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ZooId" class="control-label"></label>
+                <label asp-for="ZooId" class="control-label">Zoo</label>
                 <select asp-for="ZooId" class="form-control" asp-items="ViewBag.ZooId"></select>
-                <span asp-validation-for="ZooId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

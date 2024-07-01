@@ -82,7 +82,7 @@ namespace Zoo.Controllers
             {
                 return NotFound();
             }
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", category.ZooId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", category.ZooId);
             return View(category);
         }
 
@@ -118,7 +118,7 @@ namespace Zoo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Id", category.ZooId);
+            ViewData["ZooId"] = new SelectList(_context.Set<ZooModel>(), "Id", "Name", category.ZooId);
             return View(category);
         }
 
